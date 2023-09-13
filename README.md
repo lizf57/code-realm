@@ -30,9 +30,7 @@ The purpose of this application, Code Realm, was to create a place web developer
 
 2. On the command line, run `SOURCE db/schema.sql;` then `exit`.
 
-3. On the command line, run `npm run seed` to run your seed files.
-
-4. To invoke the application, type `npm run watch` on the command line.
+3. To invoke the application, type `npm run watch` on the command line.
 
 ## [License](#table-of-contents)
 [MIT License](https://opensource.org/licenses/MIT)
