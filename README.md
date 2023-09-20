@@ -44,6 +44,8 @@ The purpose of this application, Code Realm, was to create a place web developer
 [![bcrypt](https://img.shields.io/badge/Bcrypt-purple)](https://www.npmjs.com/package/bcrypt) 
 [![dotenv](https://img.shields.io/badge/.env-yellow)](https://www.npmjs.com/package/dotenv) 
 
+
+
 ## [Contributions](#table-of-contents)
 There were no other contributors to this application. This application was initiated as a project from the University of Wisconsin Coding Bootcamp.  
 
