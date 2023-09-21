@@ -1,0 +1,42 @@
+:root{
+    --main: #b48547;
+    --lightAccent: #d4c4b5;
+    --darkAccent: #835c2f;
+}
+
+* {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+a.navba-brand:hover,
+a.nav-link:hover {
+    text-decoration: none;
+    color: var(--darkAccent);
+}
+
+#hero {
+    background-image: url('../images/hero.jpeg'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-body {
+    margin: 4%;
+}
+
+.hero-body h2 {
+    color: var(--lightAccent);
+    font-size: 60px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
