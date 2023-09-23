@@ -1,0 +1,18 @@
+[
+    {
+        "username": "coder123",
+        "email": "coder123@gmail.com",
+        "password": "password123"
+    },
+    {
+        "username": "code4life",
+        "email": "code4life@gmail.com",
+        "password": "password1234"
+
+    },
+    {
+        "username": "apple_over_samsung",
+        "email": "apple@gmail.com",
+        "password": "password12345"
+    }
+]

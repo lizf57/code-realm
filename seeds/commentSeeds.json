@@ -1,0 +1,22 @@
+[
+    {
+        "comment_content": "Multidimensional arrays are useful when storing data like a table with rows and columns.",
+        "user_id": "3",
+        "post_id": "1"
+    },
+    {
+        "comment_content": "Will there still be developers if AI can just do it?",
+        "user_id": "1",
+        "post_id": "2"
+    },
+    {
+        "comment_content": "I don't think AI will replace our jobs, but what do I know...",
+        "user_id": "3",
+        "post_id": "2"
+    },
+    {
+        "comment_content": "I heard about Flutter but haven't used it. Google made it, so I'm sure it's a good source.",
+        "user_id": "2",
+        "post_id": "3"
+    }
+]

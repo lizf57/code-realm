@@ -20,14 +20,13 @@ router.get('/', (req, res) => {
             {
                 model: Comment,
                 attributes: ['id', 'comment_content', 'user_id', 'post_id', 'createdAt'],
-                include: {
-                    module: User,
-                    attributes: ['username']
-                }
             }
         ]
     })
     .then(dbPostData => {
+
+        console.log(dbPostData)
+        
         const posts = dbPostData.map(post => post.get({ plain: true}));
         res.render('homepage', {
             posts,

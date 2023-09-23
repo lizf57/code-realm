@@ -8,6 +8,10 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
+#navTitle {
+    color: #835c2f;
+}
+
 a.navba-brand:hover,
 a.nav-link:hover {
     text-decoration: none;
@@ -19,14 +23,14 @@ a.nav-link:hover {
     background-blend-mode: overlay;
     background-size: cover;
     background-position: center;
-    height: 600px;
+    height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-body {
-    margin: 4%;
+    margin: 2%;
 }
 
 .hero-body h2 {
@@ -39,4 +43,24 @@ a.nav-link:hover {
 .button-container {
     display: flex;
     justify-content: center;
+}
+
+#heroLogin {
+    background-image: url('../images/login.jpg'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-blend-mode:overlay;
+    background-size:contain;
+    background-position: center;
+    height: 750px;
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+    text-align: center;
+    color: var(--lightAccent);
+    padding: 5%;
+}
+
+.form-input {
+    margin: 4px;
+    border-radius: 5px;
+    font-size: 15px;
 }

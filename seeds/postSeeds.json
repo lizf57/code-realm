@@ -1,0 +1,17 @@
+[
+    {
+        "title": "The concept of Arrays",
+        "post_content": "In most programming languages, arrays start with an index of 0, instead of the index of 1. The concept of arrays can be difficult to grasp for beginners, especailly considering multidimensional arrays.",
+        "user_id": "coder123"
+    },
+    {
+        "title": "Is AI good or bad?",
+        "post_content": "Right now, AI (artificial intelligence) doesn't seem to be posing too big of a threat, however, knowing what it is capable of is scary, right?",
+        "user_id": "code4life"
+    },
+    {
+        "title": "First time using Flutter",
+        "post_content": "I recently started using this new technology called Flutter. If you haven't heard about it, it basically a software development kit you can develop apps for iPhone, Andriod, Windows, Mac, or Linux desktops from the same codebase. It has saved me a lot of time. So far so good.",
+        "user_id": "apple_over_samsung"
+    }
+]

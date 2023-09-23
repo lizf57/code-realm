@@ -61,6 +61,7 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
+
     .then(dbPostData => {
         if(!dbPostData) {
             res.status(404).json({ message: 'No post found with this id' });
@@ -75,7 +76,8 @@ router.get('/:id', (req, res) => {
 });
 
 // create
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
+    console.log(req.body)
     Post.create({
         title: req.body.title,
         post_content: req.body.post_content,
@@ -89,7 +91,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // update
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Post.update(req.body, 
         {
             where: {
