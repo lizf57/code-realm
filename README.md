@@ -1,7 +1,5 @@
 # Module 14: Code Realm (tech blog)
 
-![logo](/public/images/FullLogo_Transparent_NoBuffer%20(1).png) 
-
 ## Description
 The purpose of this application, Code Realm, was to create a place web developers can publish blog posts and communicate with other developers by commenting on posts. The application follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. 
 
