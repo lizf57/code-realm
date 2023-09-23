@@ -1,24 +1,24 @@
-const form = document.querySelector("form")
-const emailInput = document.getElementById('email-login')
-const passwordInput = document.getElementById('password-input')
+const loginPage = async (event) => {
+    event.preventDefault();
 
-console.log(emailInput, passwordInput)
+    const email = document.querySelector('#email-login').value.trim()
+    const password = document.querySelector('#password-login').value.trim()
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
-    const userData = {
-        email: emailInput.value,
-        password: passwordInput.value,
-    }
-    fetch("/api/users/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData)
-    })
-    .then(response => {
-        if(response.status === 200){
-            window.location.assign("/")
+    if(email && password) {
+        const response = await fetch('/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.replace('/profile')
+        } else {
+            alert('Incorrect login information')
         }
-    })
-    .catch(err => console.log(err))
-})
+    }
+}
+
+document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginPage)
