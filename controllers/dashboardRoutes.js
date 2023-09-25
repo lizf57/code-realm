@@ -3,7 +3,7 @@ const { Post, User, Comment } = require('../models')
 const withAuth = require('../utils/auth')
 
 // Post - find all
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -23,10 +23,10 @@ router.get('/', withAuth, (req, res) => {
                     attributes: ['username']
                 }
             },
-            {
-                model: User,
-                attributes: ['username']
-            }
+            // {
+            //     model: User,
+            //     attributes: ['username']
+            // }
         ]
     })
     .then(dbPostData => {
@@ -40,7 +40,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // Post - find one
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/edit/:id', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -81,7 +81,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 //  User - find one
-router.get('/edituser', withAuth, (req, res) => {
+router.get('/edituser', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {
