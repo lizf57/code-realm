@@ -1,27 +1,28 @@
-const form = document.querySelector('form')
-const usernameInput = document.getElementById('username-signup')
-const emailInput = document.getElementById('email-signup')
-const passwordInput = document.getElementById('password-signup')
+async function signupFormHandler(event){
+    event.preventDefault();
+    const usernameInput = document.getElementById('username-signup')
+    const passwordInput = document.getElementById('password-signup')
+    // const form = document.querySelector('form')
+    // const emailInput = document.getElementById('email-signup')
+    
+    if (usernameInput && passwordInput) {
+        const response = await  fetch('/api/users', {
+            method: 'POST',
+            body: JSON.stringify({
+                usernameInput,
+                passwordInput
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const userData = {
-        username: usernameInput.value.trim(),
-        email: emailInput.value.trim(),
-        password: passwordInput.value.trim()
-    }
-
-    console.log(usernameInput.value, emailInput.value, passwordInput.value)
-
-    fetch('/api/users', {
-        method: 'POST',
-        body: JSON.stringify(userData),
-        headers: {'Content-Type': 'application/json'}
-    })
-    .then(response => {
-        if (response.status === 200) {
-            window.location.assign('/')
+        if(response.ok){
+            document.location.replace('/dashboard')
+        } else {
+            alert(response.statusText)
         }
-    })
-    .catch(err => console.log(err))
-})
+    }
+}
+
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler)

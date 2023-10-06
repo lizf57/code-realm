@@ -1,4 +1,4 @@
-const loginFormHandler = async (event) => {
+async function loginFormHandler(event){
     event.preventDefault();
 
     const email = document.querySelector('#email-login').value.trim()
@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/profile')
+            document.location.replace('/dashboard')
         } else {
             alert('Incorrect login information')
         }
