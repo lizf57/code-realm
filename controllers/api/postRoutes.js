@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const { User, Post, Comment } = require('../../models')
-const withAuth = require('../../utils/auth')
 
 // find all
 router.get('/', (req, res) => {
@@ -77,7 +76,6 @@ router.get('/:id', (req, res) => {
 
 // create
 router.post('/', (req, res) => {
-    console.log(req.body)
     Post.create({
         title: req.body.title,
         post_content: req.body.post_content,

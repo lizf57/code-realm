@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User } = require('../../models')
+const { User, Post, Comment } = require('../../models')
 
 router.get('/', async (req, res) => {
     try {
@@ -22,37 +22,54 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/login', async (req, res) => {
-    try {
-        const userData = await User.findOne({ where: { email: req.body.email }});
-
-        if(!userData) {
-            res
-            .status(401)
-            .json({ message: 'Incorrect email or password, please try again' });
+// user login
+router.post('/login', (req, res) => {
+   User.findOne({ 
+        where: { 
+            email: req.body.email 
+        }
+    })
+    .then(dbUserData => {
+        if(!dbUserData) {
+            res.status(400).json({ 
+                message: 'Incorrect email or password, please try again' 
+            });
             return;
         }
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.username = dbUserData.username;
+            req.session.logged_in = true;
 
-        const validPassword = await userData.checkPassword(req.body.password);
+            res.json({ 
+                user: userData, 
+                message: 'You are now logged in!' 
+            });
+        })
+        const goodPassword = dbUserData.checkPassword(req.body.password)
 
-        if(!validPassword){
-            res
-            .status(400)
-            .json({ message: 'Incorrect email or password, please try again' });
+        if (!goodPassword) {
+            res.status(400).json({
+                message: 'incorrect password'
+            })
             return;
         }
 
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
             req.session.logged_in = true;
 
-            res.json({ user: userData, message: 'You are now logged in!' });
-        })
-    } catch (err) {
-        res.status(400).json(err)
-    }
+            res.json({
+                user: dbUserData,
+                message: 'You are logged in to Code Realm!'
+            });
+        });
+    });
 });
 
+
+// user logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
@@ -60,7 +77,7 @@ router.post('/logout', (req, res) => {
         })
     } else {
         res.status(404).end()
-    }
+    };
 });
 
-module.exports = router
+module.exports = router;

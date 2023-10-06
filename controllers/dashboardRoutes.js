@@ -1,6 +1,6 @@
 const router = require('express').Router()
+const sequelize = require('../config/connection')
 const { Post, User, Comment } = require('../models')
-const withAuth = require('../utils/auth')
 
 // Post - find all
 router.get('/', (req, res) => {
@@ -22,11 +22,7 @@ router.get('/', (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
-            },
-            // {
-            //     model: User,
-            //     attributes: ['username']
-            // }
+            }
         ]
     })
     .then(dbPostData => {
@@ -81,25 +77,8 @@ router.get('/edit/:id', (req, res) => {
 });
 
 //  User - find one
-router.get('/edituser', (req, res) => {
-    User.findOne({
-        attributes: { exclude: ['password'] },
-        where: {
-            id: req.session.user_id
-        }
-    })
-    .then(dbUserData => {
-        if(!dbUserData) {
-            res.status(404).json({ message: 'No user found with this id' });
-            return;
-        }
-        const user = dbUserData.get({ plain: true })
-        res.render('edit-user', {user, logged_in: true })
-    })
-    .catch(err => {
-        console.log(err)
-        res.status(500).json(err)
-    })
+router.get('/new', (req, res) => {
+    res.render('add-post', { logged_in: true })
 });
 
 module.exports = router;
