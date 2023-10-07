@@ -1,38 +1,20 @@
-<section class="row">
-    <div class="column">
-        <h2>Create Post</h2>
+<a href="/dashboard" class="goBacktoDash">&larr; Back to Dashboard </a>
+{{>postInfo post}}
 
-        <form class="create-post-form">
-            <div>
-                <input type="text" id="post_title" name="post_title" placeholder="Post Title" />
-            </div>
+{{#if logged_in}}
 
-            <div>
-             <textarea id="post_content" name="post_content" placeholder="Post Content"></textarea>
-            </div>
-
-            <button type="submit" id="create-post-btn"> Submit post</button>
-        </form>
+<form class="commentForm">
+    <div>
+        <textarea name="commentContent"></textarea>
     </div>
-
-    <div class="column">
-        <h2>About Me</h2>
-        {{> user-data}}
+    <div>
+        <button type="submit">Add Comment</button>
     </div>
-</section>
+</form>
 
-{{#if posts.length}}
-<section>
-    <h2>{{Username}}'s Posts</h2>
-    <ol>
-        {{#each posts as post}}
-        <li>
-            {{> post-data post}}
-            <a href="/dashboard/edit/{{post.id}}" id="edit-link"> Edit Post</a>
-        </li>
-        {{/each}}
-    </ol>
-</section>
 {{/if}}
+{{> comments posts.comments}}
 
-<script src="/public/js/addPost.js"></script>
+{{#if logged_in}}
+<script src="/public/js/comment.js"></script>
+{{/if}}

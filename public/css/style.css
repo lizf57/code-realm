@@ -46,7 +46,7 @@ a.nav-link:hover {
 }
 
 #heroLogin {
-    background-image: url('../images/login.jpg');
+    background-image: url('../images/login.jpg'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
     background-blend-mode:overlay;
     background-size:cover;
     background-position: center;
@@ -66,7 +66,7 @@ a.nav-link:hover {
 }
 
 #heroSignup {
-    background-image: url('../images/signup.jpg');    
+    background-image: url('../images/signup.jpg'), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));    
     background-size:cover;
     background-position: top;
     height: 800px;

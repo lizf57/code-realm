@@ -1,0 +1,20 @@
+<section class="post-section">
+    <button type="submit" class="button" id="createPost">+ Create New Blog Post</button>
+</section>
+
+{{#if posts.length}}
+
+<section>
+    <h2>{{user.username}}'s Dashboard</h2>
+    <ul class="postList">
+        {{#each posts as |post|}}
+        <li>
+            {{> postInfo post}}
+            <a href="/dashboard/edit/{{post.id}}" class="editPost">Edit Post</a>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+
+<script src="/public/js/createPost.js"></script>

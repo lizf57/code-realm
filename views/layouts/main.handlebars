@@ -20,22 +20,22 @@
       
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
+
         <a href="/" class="navbar-brand">
-            <h2 id="navTitle"> Code Realm</h2>
+            <h2 id="navTitle"> Code Realm</h2></a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="flase" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar">
-            <a class="nav-link mx-4" href="/post">Blog</a>
+            <a class="nav-link mx-4" href="/api/posts">Blog</a>
             <a class="nav-link mx-4" href="/signup">Sign-up</a>
 
             <a class="nav-link mx-3"> {{> log-in-out}} </a>
             {{#if logged_in}}
             <a class="nav-link mx-4" href="/dashboard">Dashboard</a>
             {{/if}}
-
-
         </div>
     </nav>
 

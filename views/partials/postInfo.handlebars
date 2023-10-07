@@ -1,0 +1,19 @@
+<article class="post">
+    <div class="post-info">
+        <div class="section-info">
+            <div class="postTitle">
+                <a href="/post/{{id}}" class="links">{{title}}</a>
+            </div>
+            <div class="creator">
+                <p>
+                    Posted by: <b>{{user.username}}</b> on <b>{{format_date createdAt}}</b>
+                </p>
+            </div>
+        </div>
+        <div class="post_content">
+            <p>
+                {{post_content}}
+            </p>
+        </div>
+    </div>
+</article>
